@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tiempo_ciudads', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tiempo_ciudades', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('ciudad_id');
+            $table->foreign('ciudad_id')->references('id')->on('ciudades');
+            $table->integer('temperatura');
+            $table->integer('viento');
+            $table->integer('humedad');
             $table->timestamps();
         });
     }

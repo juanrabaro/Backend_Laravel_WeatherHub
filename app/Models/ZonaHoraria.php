@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ZonaHoraria extends Model
 {
     use HasFactory;
+
+    public function ciudades()
+    {
+        return $this->hasMany(Ciudades::class);
+    }
 }
