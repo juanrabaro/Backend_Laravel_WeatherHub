@@ -13,7 +13,7 @@ class CiudadesUsuariosController extends Controller
      */
     public function index()
     {
-        //
+        return CiudadesUsuarios::all();
     }
 
     /**

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCiudadesRequest;
 use App\Http\Requests\UpdateCiudadesRequest;
 use App\Models\Ciudades;
+use App\Http\Resources\CiudadesResource;
+use App\Http\Resources\CiudadesCollection;
+
 
 class CiudadesController extends Controller
 {
@@ -13,7 +16,7 @@ class CiudadesController extends Controller
      */
     public function index()
     {
-        return Ciudades::all();
+        return new CiudadesCollection(Ciudades::paginate(10));
     }
 
     /**
@@ -37,7 +40,7 @@ class CiudadesController extends Controller
      */
     public function show(Ciudades $ciudades)
     {
-        //
+        return new CiudadesResource($ciudades);
     }
 
     /**

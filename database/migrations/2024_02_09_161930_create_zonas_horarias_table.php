@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('zonas_horarias', function (Blueprint $table) {
+        Schema::create('zona_horarias', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('ciudad_id');
             $table->foreign('ciudad_id')->references('id')->on('ciudades');

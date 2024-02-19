@@ -13,7 +13,7 @@ class ZonaHorariaController extends Controller
      */
     public function index()
     {
-        //
+        return ZonaHoraria::all();
     }
 
     /**

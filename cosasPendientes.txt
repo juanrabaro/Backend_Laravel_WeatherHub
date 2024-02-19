@@ -1,0 +1,8 @@
+
+-Resources de todas tablas ⌛
+-Collections de todas las tablas ⌛
+
+-Endpoints
+
+-CRUD usuario
+-token sesión

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTiempoCiudadRequest;
-use App\Http\Requests\UpdateTiempoCiudadRequest;
-use App\Models\TiempoCiudad;
+use App\Http\Requests\StoreTiempoCiudadesRequest;
+use App\Http\Requests\UpdateTiempoCiudadesRequest;
+use App\Models\TiempoCiudades;
 
-class TiempoCiudadController extends Controller
+class TiempoCiudadesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return TiempoCiudades::all();
     }
 
     /**
@@ -27,7 +27,7 @@ class TiempoCiudadController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTiempoCiudadRequest $request)
+    public function store(StoreTiempoCiudadesRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class TiempoCiudadController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TiempoCiudad $tiempoCiudad)
+    public function show(TiempoCiudades $tiempoCiudades)
     {
         //
     }
@@ -43,7 +43,7 @@ class TiempoCiudadController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TiempoCiudad $tiempoCiudad)
+    public function edit(TiempoCiudades $tiempoCiudades)
     {
         //
     }
@@ -51,7 +51,7 @@ class TiempoCiudadController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTiempoCiudadRequest $request, TiempoCiudad $tiempoCiudad)
+    public function update(UpdateTiempoCiudadesRequest $request, TiempoCiudades $tiempoCiudades)
     {
         //
     }
@@ -59,7 +59,7 @@ class TiempoCiudadController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TiempoCiudad $tiempoCiudad)
+    public function destroy(TiempoCiudades $tiempoCiudades)
     {
         //
     }
