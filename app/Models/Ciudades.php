@@ -21,8 +21,8 @@ class Ciudades extends Model
         return $this->belongsTo(ZonaHoraria::class);
     }
 
-    public function tiempoCiudad()
+    public function tiempoCiudades()
     {
-        return $this->belongsTo(TiempoCiudad::class);
+        return $this->hasOne(TiempoCiudades::class, 'ciudad_id');
     }
 }

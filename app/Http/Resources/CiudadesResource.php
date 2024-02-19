@@ -21,6 +21,7 @@ class CiudadesResource extends JsonResource
             'poblacion' => $this->poblacion,
             'terreno' => $this->terreno,
             'urlImagen' => $this->url_imagen,
+            'tiempoCiudad' => new TiempoCiudadesResource($this->whenLoaded('tiempoCiudades')),
         ];
     }
 }

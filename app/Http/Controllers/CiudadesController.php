@@ -41,9 +41,12 @@ class CiudadesController extends Controller
      */
     public function show(Ciudades $idCiudad)
     {
-        $tiempoCiudad = TiempoCiudades::find($idCiudad->id);
-        dd($tiempoCiudad->id);
-        return new CiudadesResource($idCiudad);
+
+        // $tiempoCiudad = TiempoCiudades::find($idCiudad->id);
+        // $viento = $tiempoCiudad->viento;
+        // dd($viento);
+        // return new CiudadesResource($idCiudad);
+        return new CiudadesResource($idCiudad->load('tiempoCiudades'));
     }
 
     /**
