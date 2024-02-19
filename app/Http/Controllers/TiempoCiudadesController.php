@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTiempoCiudadesRequest;
 use App\Http\Requests\UpdateTiempoCiudadesRequest;
+use App\Http\Resources\TiempoCiudadesCollection;
+use App\Http\Resources\TiempoCiudadesResource;
+use App\Models\TiempoCiudad;
 use App\Models\TiempoCiudades;
 
 class TiempoCiudadesController extends Controller
@@ -13,7 +16,7 @@ class TiempoCiudadesController extends Controller
      */
     public function index()
     {
-        return TiempoCiudades::all();
+        return new TiempoCiudadesCollection(TiempoCiudades::paginate(10));
     }
 
     /**
@@ -37,7 +40,7 @@ class TiempoCiudadesController extends Controller
      */
     public function show(TiempoCiudades $tiempoCiudades)
     {
-        //
+        return new TiempoCiudadesResource($tiempoCiudades);
     }
 
     /**

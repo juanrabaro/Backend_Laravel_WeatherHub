@@ -24,7 +24,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('ciudades', [CiudadesController::class, 'index']);
-Route::get('ciudades/{ciudades}', [CiudadesController::class, 'show']);
+Route::get('ciudades/{idCiudad}', [CiudadesController::class, 'show']);
+
+Route::get('lugares-guardados', [CiudadesUsuariosController::class, 'index']);
+Route::get('lugares-guardados/{ciudadesUsuarios}', [CiudadesUsuariosController::class, 'show']);
+
+Route::get('tiempo-ciudades', [TiempoCiudadesController::class, 'index']);
+Route::get('tiempo-ciudades/{tiempoCiudades}', [TiempoCiudadesController::class, 'show']);
+
+Route::get('zona-horaria', [ZonaHorariaController::class, 'index']);
+Route::get('zona-horaria/{zonaHoraria}', [ZonaHorariaController::class, 'show']);
+
+Route::get('usuarios', [UsuariosController::class, 'index']);
+Route::get('usuarios/{usuarios}', [UsuariosController::class, 'show']);
+
 
 // Route::apiResource('ciudades', CiudadesController::class);
 // Route::apiResource('lugares-guardados', CiudadesUsuariosController::class);

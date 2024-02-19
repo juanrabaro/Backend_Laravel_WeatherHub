@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreZonaHorariaRequest;
 use App\Http\Requests\UpdateZonaHorariaRequest;
+use App\Http\Resources\ZonaHorariaCollection;
+use App\Http\Resources\ZonaHorariaResource;
 use App\Models\ZonaHoraria;
 
 class ZonaHorariaController extends Controller
@@ -13,7 +15,7 @@ class ZonaHorariaController extends Controller
      */
     public function index()
     {
-        return ZonaHoraria::all();
+        return new ZonaHorariaCollection(ZonaHoraria::paginate(10));
     }
 
     /**
@@ -37,7 +39,7 @@ class ZonaHorariaController extends Controller
      */
     public function show(ZonaHoraria $zonaHoraria)
     {
-        //
+        return new ZonaHorariaResource($zonaHoraria);
     }
 
     /**

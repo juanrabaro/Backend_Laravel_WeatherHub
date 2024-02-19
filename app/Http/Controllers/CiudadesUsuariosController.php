@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCiudadesUsuariosRequest;
 use App\Http\Requests\UpdateCiudadesUsuariosRequest;
+use App\Http\Resources\CiudadesUsuariosCollection;
+use App\Http\Resources\CiudadesUsuariosResource;
 use App\Models\CiudadesUsuarios;
 
 class CiudadesUsuariosController extends Controller
@@ -13,7 +15,7 @@ class CiudadesUsuariosController extends Controller
      */
     public function index()
     {
-        return CiudadesUsuarios::all();
+        return new CiudadesUsuariosCollection(CiudadesUsuarios::paginate(10));
     }
 
     /**
@@ -37,7 +39,7 @@ class CiudadesUsuariosController extends Controller
      */
     public function show(CiudadesUsuarios $ciudadesUsuarios)
     {
-        //
+        return new CiudadesUsuariosResource($ciudadesUsuarios);
     }
 
     /**

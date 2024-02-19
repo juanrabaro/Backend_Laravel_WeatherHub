@@ -1,6 +1,6 @@
 
--Resources de todas tablas ⌛
--Collections de todas las tablas ⌛
+-Resources de todas tablas ✅
+-Collections de todas las tablas ✅
 
 -Endpoints
 

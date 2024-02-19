@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUsuariosRequest;
 use App\Http\Requests\UpdateUsuariosRequest;
+use App\Http\Resources\UsuariosCollection;
+use App\Http\Resources\UsuariosResource;
 use App\Models\Usuarios;
 
 class UsuariosController extends Controller
@@ -13,7 +15,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        return Usuarios::all();
+        return new UsuariosCollection(Usuarios::paginate(10));
     }
 
     /**
@@ -37,7 +39,7 @@ class UsuariosController extends Controller
      */
     public function show(Usuarios $usuarios)
     {
-        //
+        return new UsuariosResource($usuarios);
     }
 
     /**

@@ -7,7 +7,8 @@ use App\Http\Requests\UpdateCiudadesRequest;
 use App\Models\Ciudades;
 use App\Http\Resources\CiudadesResource;
 use App\Http\Resources\CiudadesCollection;
-
+use App\Models\TiempoCiudad;
+use App\Models\TiempoCiudades;
 
 class CiudadesController extends Controller
 {
@@ -38,9 +39,11 @@ class CiudadesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ciudades $ciudades)
+    public function show(Ciudades $idCiudad)
     {
-        return new CiudadesResource($ciudades);
+        $tiempoCiudad = TiempoCiudades::find($idCiudad->id);
+        dd($tiempoCiudad->id);
+        return new CiudadesResource($idCiudad);
     }
 
     /**
