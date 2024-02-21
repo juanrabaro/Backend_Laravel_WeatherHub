@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Usuarios extends Authenticatable
 {
     // use HasFactory, HasApiTokens, Notifiable;
-    use HasFactory, HasApiTokens;
+    use HasFactory, HasApiTokens, Notifiable;
 
     protected $guarded = [];
 

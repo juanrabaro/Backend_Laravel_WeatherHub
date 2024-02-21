@@ -4,5 +4,7 @@
 
 -Endpoints get ✅
 
--CRUD usuario
--token sesión
+-CRUD usuario ✅
+-token sesión 🌵
+
+-migraciones desde seeders y factories

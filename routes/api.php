@@ -96,3 +96,6 @@ Route::post('/login', [AuthController::class, 'login']);
 // Route::group(['middleware' => 'auth:sanctum'], function () {
 //     Route::apiResource('usuarios', UsuariosController::class);
 // });
+
+
+Route::middleware('auth:sanctum')->get('/usuarioData', [AuthController::class, 'getAuthenticatedUser']);
