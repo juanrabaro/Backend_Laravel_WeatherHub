@@ -31,7 +31,26 @@ class CiudadesUsuariosController extends Controller
      */
     public function store(StoreCiudadesUsuariosRequest $request)
     {
-        //
+        try {
+            $data = $request->all();
+            $idCiudad = $data['ciudad_id'];
+            $idUsuario = $data['usuario_id'];
+
+            $existingRecord = CiudadesUsuarios::where('ciudad_id', $idCiudad)
+                                          ->where('usuario_id', $idUsuario)
+                                          ->first();
+
+            if ($existingRecord) {
+                return response()->json(['error' => 'El usuario ya tiene esta ciudad guardada'], 500);
+            }
+
+            $ciudadUsuario = CiudadesUsuarios::create($data);
+    
+            return new CiudadesUsuariosResource($ciudadUsuario);
+        } catch (\Exception $e) {
+            // Aquí puedes manejar el error como quieras
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**

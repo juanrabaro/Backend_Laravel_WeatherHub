@@ -31,7 +31,17 @@ class UsuariosController extends Controller
      */
     public function store(StoreUsuariosRequest $request)
     {
-        //
+        try {
+            $data = $request->all();
+            $data['password'] = bcrypt($data['password']);
+    
+            $usuario = Usuarios::create($data);
+    
+            return new UsuariosResource($usuario);
+        } catch (\Exception $e) {
+            // Aquí puedes manejar el error como quieras
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -39,7 +49,8 @@ class UsuariosController extends Controller
      */
     public function show(Usuarios $usuarios)
     {
-        return new UsuariosResource($usuarios);
+        // dd($usuarios -> ciudadesUsuarios);
+        return new UsuariosResource($usuarios->load('ciudadesUsuarios'));
     }
 
     /**

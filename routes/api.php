@@ -19,10 +19,58 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
+
+use Laravel\Passport\Http\Controllers;
+use App\Http\Controllers\AuthController;
+
+// Route::group(['middleware' => 'api'], function () {
+//     Route::post('/oauth/token', [
+//         'uses' => 'AccessTokenController@issueToken',
+//         'middleware' => 'throttle',
+//     ]);
+
+//     Route::post('/oauth/token/refresh', [
+//         'uses' => 'TransientTokenController@refresh',
+//         'middleware' => 'auth:api',
+//     ]);
+
+//     Route::delete('/oauth/tokens/{token_id}', [
+//         'uses' => 'AuthorizedAccessTokenController@destroy',
+//         'middleware' => 'auth:api',
+//     ]);
+
+//     Route::get('/oauth/tokens', [
+//         'uses' => 'AuthorizedAccessTokenController@forUser',
+//         'middleware' => 'auth:api',
+//     ]);
+
+//     Route::post('/oauth/clients', [
+//         'uses' => 'ClientController@store',
+//         'middleware' => 'auth:api',
+//     ]);
+
+//     Route::delete('/oauth/clients/{client_id}', [
+//         'uses' => 'ClientController@destroy',
+//         'middleware' => 'auth:api',
+//     ]);
+
+//     Route::get('/oauth/clients', [
+//         'uses' => 'ClientController@forUser',
+//         'middleware' => 'auth:api',
+//     ]);
+
+//     Route::get('/oauth/scopes', [
+//         'uses' => 'ScopeController@all',
+//         'middleware' => 'auth:api',
+//     ]);
+// });
+
+
+// GET
 Route::get('ciudades', [CiudadesController::class, 'index']);
 Route::get('ciudades/{idCiudad}', [CiudadesController::class, 'show']);
 
@@ -38,9 +86,13 @@ Route::get('zona-horaria/{zonaHoraria}', [ZonaHorariaController::class, 'show'])
 Route::get('usuarios', [UsuariosController::class, 'index']);
 Route::get('usuarios/{usuarios}', [UsuariosController::class, 'show']);
 
+// POST
+Route::post('usuarios/post', [UsuariosController::class, 'store']);
+Route::post('usuario-ciudad/post', [CiudadesUsuariosController::class, 'store']);
 
-// Route::apiResource('ciudades', CiudadesController::class);
-// Route::apiResource('lugares-guardados', CiudadesUsuariosController::class);
-// Route::apiResource('tiempo-ciudades', TiempoCiudadesController::class);
-// Route::apiResource('usuarios', UsuariosController::class);
-// Route::apiResource('zona-horaria', ZonaHorariaController::class);
+Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout']);
+
+// Route::group(['middleware' => 'auth:sanctum'], function () {
+//     Route::apiResource('usuarios', UsuariosController::class);
+// });

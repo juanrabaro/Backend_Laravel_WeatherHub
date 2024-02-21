@@ -2,7 +2,7 @@
 -Resources de todas tablas ✅
 -Collections de todas las tablas ✅
 
--Endpoints
+-Endpoints get ✅
 
 -CRUD usuario
 -token sesión

@@ -10,4 +10,9 @@ class CiudadesUsuarios extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function usuarios()
+    {
+        return $this->hasMany(Usuarios::class);
+    }
 }

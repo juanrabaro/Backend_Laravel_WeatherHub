@@ -13,12 +13,12 @@ class Ciudades extends Model
 
     public function usuarios()
     {
-        return $this->belongsToMany(Usuarios::class, 'ciudades_usuarios');
+        return $this->belongsToMany(Usuarios::class, 'ciudades_usuarios', 'usuario_id', 'ciudad_id');
     }
 
     public function zonaHoraria()
     {
-        return $this->belongsTo(ZonaHoraria::class);
+        return $this->hasOne(ZonaHoraria::class, 'ciudad_id');
     }
 
     public function tiempoCiudades()

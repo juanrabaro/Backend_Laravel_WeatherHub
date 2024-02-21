@@ -17,7 +17,7 @@ class CiudadesController extends Controller
      */
     public function index()
     {
-        return new CiudadesCollection(Ciudades::paginate(10));
+        return new CiudadesCollection(Ciudades::with(['tiempoCiudades', 'zonaHoraria'])->paginate(10));
     }
 
     /**
@@ -46,7 +46,7 @@ class CiudadesController extends Controller
         // $viento = $tiempoCiudad->viento;
         // dd($viento);
         // return new CiudadesResource($idCiudad);
-        return new CiudadesResource($idCiudad->load('tiempoCiudades'));
+        return new CiudadesResource($idCiudad->load(['tiempoCiudades', 'zonaHoraria']));
     }
 
     /**

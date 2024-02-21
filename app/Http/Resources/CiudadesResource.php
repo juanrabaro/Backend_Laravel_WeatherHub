@@ -22,6 +22,7 @@ class CiudadesResource extends JsonResource
             'terreno' => $this->terreno,
             'urlImagen' => $this->url_imagen,
             'tiempoCiudad' => new TiempoCiudadesResource($this->whenLoaded('tiempoCiudades')),
+            'zonaHoraria' => new ZonaHorariaResource($this->whenLoaded('zonaHoraria')),
         ];
     }
 }
