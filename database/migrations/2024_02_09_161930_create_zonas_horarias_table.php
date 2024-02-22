@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('ciudad_id');
             $table->foreign('ciudad_id')->references('id')->on('ciudades');
-            $table->time('hora_zona');
+            $table->integer('hora_zona');
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ciudades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_ciudad');
-            $table->string('poblacion');
-            $table->string('terreno');
+            $table->bigInteger('poblacion');
+            $table->bigInteger('terreno');
             $table->string('clima');
             $table->string('url_imagen');
             $table->timestamps();

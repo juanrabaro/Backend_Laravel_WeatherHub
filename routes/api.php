@@ -87,8 +87,8 @@ Route::get('usuarios', [UsuariosController::class, 'index']);
 Route::get('usuarios/{usuarios}', [UsuariosController::class, 'show']);
 
 // POST
-Route::post('usuarios/post', [UsuariosController::class, 'store']);
-Route::post('usuario-ciudad/post', [CiudadesUsuariosController::class, 'store']);
+Route::post('register', [UsuariosController::class, 'store']);
+Route::post('guardar-ciudad', [CiudadesUsuariosController::class, 'store']);
 
 Route::post('/login', [AuthController::class, 'login']);
 // Route::post('/logout', [AuthController::class, 'logout']);

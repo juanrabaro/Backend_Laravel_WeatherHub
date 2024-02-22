@@ -15,9 +15,11 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('ciudad_id');
             $table->foreign('ciudad_id')->references('id')->on('ciudades');
-            $table->integer('temperatura');
+            $table->integer('temperatura_max');
+            $table->integer('temperatura_min');
             $table->integer('viento');
             $table->integer('humedad');
+            $table->integer('precipitacion');
             $table->timestamps();
         });
     }

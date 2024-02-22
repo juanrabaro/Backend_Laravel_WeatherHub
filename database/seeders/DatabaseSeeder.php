@@ -14,9 +14,16 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
+        // \App\Models\Usuarios::factory()->create([
+        //     'nombre_usuario' => 'Test User',
         //     'email' => 'test@example.com',
+        //     'password' => 'password',
         // ]);
+
+        $this->call([
+            CiudadesSeeder::class,
+            ZonaHorariaSeeder::class,
+            TiempoCiudadesSeeder::class,
+        ]);
     }
 }

@@ -17,9 +17,11 @@ class TiempoCiudadesResource extends JsonResource
         return [
             'id' => $this->id,
             'idCiudad' => $this->ciudad_id,
-            'temperatura' => $this->temperatura,
+            'temperaturaMax' => $this->temperatura_max,
+            'temperaturaMin' => $this->temperatura_min,
             'humedad' => $this->humedad,
             'viento' => $this->viento,
+            'precipitacion' => $this->precipitacion,
         ];
     }
 }
