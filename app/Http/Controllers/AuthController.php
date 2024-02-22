@@ -5,15 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Usuarios;
-use Illuminate\Support\Facades\Log;
-use Laravel\Passport\Passport;
 
 class AuthController extends Controller
 {
-    /**
-     * Handle a login request to the application.
-     */
-    public function login(Request $request)
+    public static function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
     
@@ -22,7 +17,7 @@ class AuthController extends Controller
             $tokenResult = $user->createToken('token');
             $token = $tokenResult->plainTextToken;
             
-            // Devuelve el token
+            // Devuelve el token de login
             return response()->json(['token' => $token]);
         }
     
@@ -33,17 +28,7 @@ class AuthController extends Controller
 
     public function getAuthenticatedUser(Request $request)
     {
-        // Devuelve los datos del usuario
+        // Devuelve el id del usuario que está logeado
         return response()->json(['id' => $request->user()->id]);
     }
-
-    /**
-     * Handle a logout request to the application.
-     */
-    // public function logout(Request $request)
-    // {
-    //     $request->user()->token()->revoke();
-
-    //     return response()->json(['message' => 'Successfully logged out']);
-    // }
 }

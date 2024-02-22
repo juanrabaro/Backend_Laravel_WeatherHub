@@ -14,13 +14,6 @@ class UsuariosResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        // return [
-        //     'id' => $this->id,
-        //     'nombreUsuario' => $this->nombre_usuario,
-        //     'email' => $this->email,
-        //     'password' => $this->password,
-        //     'ciudadesGuardadas' => new CiudadesUsuariosResource($this->whenLoaded('ciudadesUsuarios')),
-        // ];
         return [
             'id' => $this->id,
             'nombreUsuario' => $this->nombre_usuario,

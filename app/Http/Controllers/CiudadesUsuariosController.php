@@ -31,6 +31,11 @@ class CiudadesUsuariosController extends Controller
      */
     public function store(StoreCiudadesUsuariosRequest $request)
     {
+        // return response()->json($request);
+        // $headerValue = $request->header('Authorization');
+        // return response()->json($headerValue);
+        // return response()->json(['id' => $request->user()->id]);
+
         try {
             $data = $request->all();
             $idCiudad = $data['ciudad_id'];
@@ -48,7 +53,6 @@ class CiudadesUsuariosController extends Controller
     
             return new CiudadesUsuariosResource($ciudadUsuario);
         } catch (\Exception $e) {
-            // Aquí puedes manejar el error como quieras
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }

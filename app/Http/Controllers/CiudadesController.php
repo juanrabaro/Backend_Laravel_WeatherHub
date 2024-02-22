@@ -7,8 +7,6 @@ use App\Http\Requests\UpdateCiudadesRequest;
 use App\Models\Ciudades;
 use App\Http\Resources\CiudadesResource;
 use App\Http\Resources\CiudadesCollection;
-use App\Models\TiempoCiudad;
-use App\Models\TiempoCiudades;
 
 class CiudadesController extends Controller
 {
@@ -41,11 +39,6 @@ class CiudadesController extends Controller
      */
     public function show(Ciudades $idCiudad)
     {
-
-        // $tiempoCiudad = TiempoCiudades::find($idCiudad->id);
-        // $viento = $tiempoCiudad->viento;
-        // dd($viento);
-        // return new CiudadesResource($idCiudad);
         return new CiudadesResource($idCiudad->load(['tiempoCiudades', 'zonaHoraria']));
     }
 

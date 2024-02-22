@@ -6,7 +6,6 @@ use App\Http\Requests\StoreTiempoCiudadesRequest;
 use App\Http\Requests\UpdateTiempoCiudadesRequest;
 use App\Http\Resources\TiempoCiudadesCollection;
 use App\Http\Resources\TiempoCiudadesResource;
-use App\Models\TiempoCiudad;
 use App\Models\TiempoCiudades;
 
 class TiempoCiudadesController extends Controller

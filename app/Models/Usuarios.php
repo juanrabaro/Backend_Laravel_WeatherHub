@@ -11,7 +11,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Usuarios extends Authenticatable
 {
-    // use HasFactory, HasApiTokens, Notifiable;
     use HasFactory, HasApiTokens, Notifiable;
 
     protected $guarded = [];

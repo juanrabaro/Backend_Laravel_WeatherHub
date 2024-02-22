@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUsuariosRequest;
 use App\Http\Resources\UsuariosCollection;
 use App\Http\Resources\UsuariosResource;
 use App\Models\Usuarios;
+use App\Http\Controllers\AuthController;
 
 class UsuariosController extends Controller
 {
@@ -36,11 +37,14 @@ class UsuariosController extends Controller
             $data['password'] = bcrypt($data['password']);
     
             $usuario = Usuarios::create($data);
-    
-            return new UsuariosResource($usuario);
+
+            $token = AuthController::login($request);
+
+            return response()->json(['message' => 'Usuario registrado correctamente', 'token' => $token, 'usuario' => $usuario], 201);
+            // return new UsuariosResource($usuario);
         } catch (\Exception $e) {
-            // Aquí puedes manejar el error como quieras
-            return response()->json(['error' => $e->getMessage()], 500);
+            // return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => 'error, usuario ya registrado o hay otro error'], 500);
         }
     }
 
@@ -49,7 +53,6 @@ class UsuariosController extends Controller
      */
     public function show(Usuarios $usuarios)
     {
-        // dd($usuarios -> ciudadesUsuarios);
         return new UsuariosResource($usuarios->load('ciudadesUsuarios'));
     }
 
