@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    environment:
+      - "DB_HOST=db"
+      - "DB_DATABASE=${DB_DATABASE}"
+      - "DB_USERNAME=${DB_USERNAME}"
+      - "DB_PASSWORD=${DB_PASSWORD}"
+    networks:
+      - laravel_network
+    command: ["dockerize", "-wait", "tcp://db:3306", "-timeout", "1m", "php", "artisan", "migrate"]
+
+  webserver:
+    image: nginx:alpine
+    container_name: laravel_webserver
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - laravel_network
+
+  db:
+    image: 'mysql/mysql-server:8.0'
+    ports:
+        - '${FORWARD_DB_PORT:-3306}:3306'
+    environment:
+        MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_ROOT_HOST: '%'
+        MYSQL_DATABASE: '${DB_DATABASE}'
+        MYSQL_USER: '${DB_USERNAME}'
+        MYSQL_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - laravel_network
+
+networks:
+  laravel_network:
+
+volumes:
+  db_data:
