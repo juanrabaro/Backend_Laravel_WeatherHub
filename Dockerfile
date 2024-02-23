@@ -1,21 +1,34 @@
-# Use the official image as a parent image
-FROM sail-8.3/app
+# Use the official PHP 8.3 image from Docker Hub
+FROM php:8.3-fpm
 
-# Set the working directory in the container
-WORKDIR /var/www/html
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
 
-# Copy the current directory contents into the container at /var/www/html
-COPY . /var/www/html
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set environment variables
-ENV WWWUSER=${WWWUSER}
-ENV LARAVEL_SAIL=1
-ENV XDEBUG_MODE=${SAIL_XDEBUG_MODE:-off}
-ENV XDEBUG_CONFIG=${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}
-ENV IGNITION_LOCAL_SITES_PATH=${PWD}
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
-# Expose port 80
-EXPOSE 80
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Run the command inside your image filesystem
-CMD [ "php", "artisan", "serve", "--host=0.0.0.0", "--port=80" ]
+# Set working directory
+WORKDIR /var/www
+
+# Copy existing application directory contents
+COPY . /var/www
+
+# Install dependencies
+RUN composer install
+
+# Expose port 9000 and start php-fpm server
+EXPOSE 9000
+CMD ["php-fpm"]
