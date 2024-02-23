@@ -168,14 +168,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/api/usuarios/",
+					"raw": "http://localhost/api/ciudades/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"usuarios",
+						"ciudades",
 						""
 					]
 				}
@@ -188,14 +188,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/api/usuarios/1",
+					"raw": "http://localhost/api/ciudades/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"usuarios",
+						"ciudades",
 						"1"
 					]
 				}
