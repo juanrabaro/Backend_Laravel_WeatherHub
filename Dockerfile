@@ -31,7 +31,7 @@ COPY . /var/www
 RUN composer install
 
 # Copy Nginx configuration file
-COPY nginx.conf /etc/nginx/sites-available/default
+COPY ./nginx.conf /etc/nginx/sites-available/default
 
 # Expose port 80 and start php-fpm server
 EXPOSE 80
