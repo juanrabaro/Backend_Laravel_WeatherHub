@@ -3,6 +3,7 @@ FROM php:8.3-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    nginx \
     git \
     curl \
     libpng-dev \
@@ -29,9 +30,12 @@ COPY . /var/www
 # Install dependencies
 RUN composer install
 
-# Expose port 9000 and start php-fpm server
-EXPOSE 9000
-CMD ["php-fpm"]
+# Copy Nginx configuration file
+COPY nginx.conf /etc/nginx/sites-available/default
+
+# Expose port 80 and start php-fpm server
+EXPOSE 80
+CMD service nginx start && php-fpm
 
 # # Use the official PHP image from the dockerhub
 # FROM php:8.3-fpm
