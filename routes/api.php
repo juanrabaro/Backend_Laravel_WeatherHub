@@ -51,3 +51,9 @@ Route::middleware('auth:sanctum')->post('/guardar-ciudad', [CiudadesUsuariosCont
 
 // Loggea al usuario
 Route::post('/login', [AuthController::class, 'login']);
+
+
+
+Route::get('/health', function () {
+  return response(null, 200);
+});
