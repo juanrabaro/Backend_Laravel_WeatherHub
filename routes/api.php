@@ -30,6 +30,7 @@ use App\Http\Controllers\AuthController;
 
 
 // GET
+
 // Contiene los datos de las ciudades, sus zonas horarias y su tiempo
 Route::get('ciudades', [CiudadesController::class, 'index']);
 Route::get('ciudades/{idCiudad}', [CiudadesController::class, 'show']);
@@ -43,6 +44,8 @@ Route::middleware('auth:sanctum')->get('/usuarioData', [AuthController::class, '
 
 
 // POST
+// Route::middleware(['corsMiddleware'])->group(function () {
+// });
 // Registra un nuevo usuario
 Route::post('register', [UsuariosController::class, 'store']);
 
@@ -50,7 +53,7 @@ Route::post('register', [UsuariosController::class, 'store']);
 Route::middleware('auth:sanctum')->post('/guardar-ciudad', [CiudadesUsuariosController::class, 'store']);
 
 // Loggea al usuario
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);  
 
 
 

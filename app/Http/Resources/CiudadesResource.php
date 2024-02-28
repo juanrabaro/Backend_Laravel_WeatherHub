@@ -19,6 +19,7 @@ class CiudadesResource extends JsonResource
             'nombreCiudad' => $this->nombre_ciudad,
             'poblacion' => $this->poblacion,
             'terreno' => $this->terreno,
+            'clima' => $this->clima,
             'urlImagen' => $this->url_imagen,
             'tiempoCiudad' => new TiempoCiudadesResource($this->whenLoaded('tiempoCiudades')),
             'zonaHoraria' => new ZonaHorariaResource($this->whenLoaded('zonaHoraria')),
