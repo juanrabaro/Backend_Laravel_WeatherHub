@@ -36,8 +36,8 @@ Route::get('ciudades', [CiudadesController::class, 'index']);
 Route::get('ciudades/{idCiudad}', [CiudadesController::class, 'show']);
 
 // Contiene los datos del usuario y sus lugares guardados
-Route::get('usuarios', [UsuariosController::class, 'index']);
-Route::get('usuarios/{usuarios}', [UsuariosController::class, 'show']);
+Route::middleware('auth:sanctum')->get('usuarios', [UsuariosController::class, 'index']);
+Route::middleware('auth:sanctum')->get('usuarios/{usuarios}', [UsuariosController::class, 'show']);
 
 // Devuelve el id del usuario que está logeado
 Route::middleware('auth:sanctum')->get('/usuarioData', [AuthController::class, 'getAuthenticatedUser']);
