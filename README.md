@@ -26,7 +26,7 @@ composer install --ignore-platform-reqs
 
 **4. Generamos la key**
 
-```sail artisan key:generate```
+```php artisan key:generate```
 
 **5. Hacemos las migraciones**
 
