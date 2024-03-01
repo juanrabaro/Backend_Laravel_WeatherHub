@@ -1,10 +1,7 @@
 
--Resources de todas tablas ✅
--Collections de todas las tablas ✅
+hacer guía de instalacíon para ejecutar en local
 
--Endpoints get ✅
-
--CRUD usuario ✅
--token sesión 🌵
-
--migraciones desde seeders y factories
+ENTREGA 1 -E/R
+ENTREGA 2 -enlace repositorio github
+ENTREGA 3 -enlace repositorio github
+ENTREGA 4 -revisar tests
