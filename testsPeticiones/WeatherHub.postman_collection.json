@@ -12,12 +12,6 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Authorization",
-						"value": "Bearer 1|fJ2hWwWYxYoQgXrPUmK5MEITf3qR8g4PuXDokP5B9dcb34bf",
-						"type": "default",
-						"disabled": true
-					},
-					{
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "default"
@@ -25,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre_usuario\": \"antonio\",\r\n    \"email\": \"antonio@gmail.com\",\r\n    \"password\": \"pestillo\"\r\n}",
+					"raw": "{\r\n    \"nombre_usuario\": \"juanramon\",\r\n    \"email\": \"juanramon@gmail.com\",\r\n    \"password\": \"contraseña\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,9 +54,8 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcwMjY5MTQ5MywiaWF0IjoxNzAyNjU1NDkzfQ.TyhVfzcVcnotO9nEeQV4i5ZveBJ6DNhHDNqDGWx_Dyc",
-						"type": "default",
-						"disabled": true
+						"value": "Bearer 44|zvBR95956PX4fjFFyJquRXonJgzoTJwPxeKgOCmaee799603",
+						"type": "default"
 					},
 					{
 						"key": "Acc",
@@ -72,7 +65,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"antonio@gmail.com\",\r\n    \"password\": \"pestillo\"\r\n}",
+					"raw": "{\r\n    \"email\": \"juanramon@gmail.com\",\r\n    \"password\": \"contraseña\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -88,18 +81,6 @@
 					"path": [
 						"api",
 						"login"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
-						},
-						{
-							"key": "Authorization",
-							"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcwMjY5MTQ5MywiaWF0IjoxNzAyNjU1NDkzfQ.TyhVfzcVcnotO9nEeQV4i5ZveBJ6DNhHDNqDGWx_Dyc",
-							"disabled": true
-						}
 					]
 				}
 			},
@@ -118,7 +99,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer 6|LhcuUUnLkS582gfnXUVk3yNjCJC833buVkR9UPu86b371f8c",
+						"value": "Bearer 45|QDkSXSd6mBF4nVye47LLjpFWZZxtbzGbc8cHFz8ye013c1f6",
 						"type": "default"
 					},
 					{
@@ -129,7 +110,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"antonio@gmail.com\",\r\n    \"password\": \"contraseña\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -212,13 +193,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer 9|hu8XgqpbAwePBboL1MywrsBoPr2z07P0HWtGXpKEcfb86b76",
+						"value": "Bearer 45|QDkSXSd6mBF4nVye47LLjpFWZZxtbzGbc8cHFz8ye013c1f6",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ciudad_id\": 3,\r\n    \"usuario_id\": 13\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -246,7 +227,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 45|QDkSXSd6mBF4nVye47LLjpFWZZxtbzGbc8cHFz8ye013c1f6",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -278,13 +265,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer 6|LhcuUUnLkS582gfnXUVk3yNjCJC833buVkR9UPu86b371f8c",
+						"value": "Bearer 45|QDkSXSd6mBF4nVye47LLjpFWZZxtbzGbc8cHFz8ye013c1f6",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ciudad_id\": 4,\r\n    \"usuario_id\": 1\r\n}",
+					"raw": "{\r\n    \"ciudad_id\": 2,\r\n    \"usuario_id\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

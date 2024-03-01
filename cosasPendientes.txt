@@ -1,7 +1,11 @@
+✅ hecho
+✅✅ hecho y entregado
+
+
+ENTREGA 1 -E/R ✅
+ENTREGA 2 -modelo de datos(sql) ✅
 
 hacer guía de instalacíon para ejecutar en local
-
-ENTREGA 1 -E/R
-ENTREGA 2 -enlace repositorio github
 ENTREGA 3 -enlace repositorio github
-ENTREGA 4 -revisar tests
+
+ENTREGA 4 -revisar tests ✅
